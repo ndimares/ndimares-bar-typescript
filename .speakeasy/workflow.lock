@@ -1,0 +1,27 @@
+speakeasyVersion: 1.297.0
+sources:
+    openapi:
+        sourceNamespace: openapi
+        sourceRevisionDigest: sha256:0dfbca6db629c77646f02bacdc4ca13e1932958eed1d7b14861d99c2f09c910d
+        sourceBlobDigest: sha256:62bb8303086c627e7491d890bea1d974e06e57977861ec0374f026e6e7554613
+        tags:
+            - latest
+targets:
+    my-first-target:
+        source: openapi
+        sourceNamespace: openapi
+        sourceRevisionDigest: sha256:0dfbca6db629c77646f02bacdc4ca13e1932958eed1d7b14861d99c2f09c910d
+        sourceBlobDigest: sha256:62bb8303086c627e7491d890bea1d974e06e57977861ec0374f026e6e7554613
+        outLocation: /Users/ndimares/speakeasy/client_sdks/ndimares/ndimares-bar-typescript
+workflow:
+    workflowVersion: 1.0.0
+    sources:
+        openapi:
+            inputs:
+                - location: ../openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/nolan-sdks/nolan-sdks/openapi
+    targets:
+        my-first-target:
+            target: typescript
+            source: openapi

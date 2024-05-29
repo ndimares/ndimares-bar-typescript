@@ -1,0 +1,11 @@
+workflowVersion: 1.0.0
+sources:
+    openapi:
+        inputs:
+            - location: ../openapi.yaml
+        registry:
+            location: registry.speakeasyapi.dev/nolan-sdks/nolan-sdks/openapi
+targets:
+    my-first-target:
+        target: typescript
+        source: openapi
