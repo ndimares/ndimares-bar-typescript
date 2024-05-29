@@ -2,7 +2,7 @@ workflowVersion: 1.0.0
 sources:
     openapi:
         inputs:
-            - location: ../openapi.yaml
+            - location: ./openapi.yaml
         registry:
             location: registry.speakeasyapi.dev/nolan-sdks/nolan-sdks/openapi
 targets:
