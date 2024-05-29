@@ -5,8 +5,10 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.297.0
   generationVersion: 2.338.1
-  releaseVersion: 0.0.1
-  configChecksum: 50916ec9e5bf853d59f6b1ad17c7b7b1
+  releaseVersion: 0.0.2
+  configChecksum: bd96545006366a31641d8c525c2dd7da
+  repoURL: https://github.com/ndimares/ndimares-bar-typescript.git
+  installationURL: https://github.com/ndimares/ndimares-bar-typescript
 features:
   typescript:
     additionalDependencies: 0.1.0
