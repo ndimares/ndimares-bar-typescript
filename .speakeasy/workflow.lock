@@ -2,23 +2,25 @@ speakeasyVersion: 1.297.0
 sources:
     openapi:
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:0dfbca6db629c77646f02bacdc4ca13e1932958eed1d7b14861d99c2f09c910d
-        sourceBlobDigest: sha256:62bb8303086c627e7491d890bea1d974e06e57977861ec0374f026e6e7554613
+        sourceRevisionDigest: sha256:9f47fdf9af0fcef858dd78e550f37e2e41895f595113d75fc4dc3e012ad2c799
+        sourceBlobDigest: sha256:8a8a26ee0d2057a10f325af3fbbd9f863d6b2c24f7bcd2baf8771ab478ebe7c5
         tags:
             - latest
+            - main
 targets:
     my-first-target:
         source: openapi
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:0dfbca6db629c77646f02bacdc4ca13e1932958eed1d7b14861d99c2f09c910d
-        sourceBlobDigest: sha256:62bb8303086c627e7491d890bea1d974e06e57977861ec0374f026e6e7554613
-        outLocation: /Users/ndimares/speakeasy/client_sdks/ndimares/ndimares-bar-typescript
+        sourceRevisionDigest: sha256:9f47fdf9af0fcef858dd78e550f37e2e41895f595113d75fc4dc3e012ad2c799
+        sourceBlobDigest: sha256:8a8a26ee0d2057a10f325af3fbbd9f863d6b2c24f7bcd2baf8771ab478ebe7c5
+        outLocation: /github/workspace/repo
 workflow:
     workflowVersion: 1.0.0
+    speakeasyVersion: latest
     sources:
         openapi:
             inputs:
-                - location: ../openapi.yaml
+                - location: ./openapi.yaml
             registry:
                 location: registry.speakeasyapi.dev/nolan-sdks/nolan-sdks/openapi
     targets:
