@@ -46,13 +46,13 @@ export class Orders extends ClientSDK {
      * Create an order for a drink.
      */
     async createOrder(
-        requestBody: Array<components.OrderInput>,
+        order: components.OrderInput,
         callbackUrl?: string | undefined,
         options?: RequestOptions
     ): Promise<operations.CreateOrderResponse> {
         const input$: operations.CreateOrderRequest = {
             callbackUrl: callbackUrl,
-            requestBody: requestBody,
+            order: order,
         };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
@@ -64,7 +64,7 @@ export class Orders extends ClientSDK {
             (value$) => operations.CreateOrderRequest$.outboundSchema.parse(value$),
             "Input validation failed"
         );
-        const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
+        const body$ = enc$.encodeJSON("body", payload$.Order, { explode: true });
 
         const path$ = this.templateURLComponent("/order")();
 

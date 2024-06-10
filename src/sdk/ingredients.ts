@@ -114,4 +114,80 @@ export class Ingredients extends ClientSDK {
 
         return result$;
     }
+
+    /**
+     * Get an ingredient.
+     *
+     * @remarks
+     * Get an ingredient by name, if authenticated this will include stock levels and product codes otherwise it will only include public information.
+     */
+    async getIngredient(
+        name: string,
+        options?: RequestOptions
+    ): Promise<operations.GetIngredientResponse> {
+        const input$: operations.GetIngredientRequest = {
+            name: name,
+        };
+        const headers$ = new Headers();
+        headers$.set("user-agent", SDK_METADATA.userAgent);
+        headers$.set("Accept", "application/json");
+
+        const payload$ = schemas$.parse(
+            input$,
+            (value$) => operations.GetIngredientRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
+        const body$ = null;
+
+        const pathParams$ = {
+            name: enc$.encodeSimple("name", payload$.name, {
+                explode: false,
+                charEncoding: "percent",
+            }),
+        };
+        const path$ = this.templateURLComponent("/ingredient/{name}")(pathParams$);
+
+        const query$ = "";
+
+        const security$ =
+            typeof this.options$.security === "function"
+                ? await this.options$.security()
+                : this.options$.security;
+
+        const context = {
+            operationID: "getIngredient",
+            oAuth2Scopes: [],
+            securitySource: this.options$.security,
+        };
+        const securitySettings$ = this.resolveGlobalSecurity(security$);
+
+        const doOptions = { context, errorCodes: ["4XX", "5XX"] };
+        const request$ = this.createRequest$(
+            context,
+            {
+                security: securitySettings$,
+                method: "GET",
+                path: path$,
+                headers: headers$,
+                query: query$,
+                body: body$,
+            },
+            options
+        );
+
+        const response = await this.do$(request$, doOptions);
+
+        const responseFields$ = {
+            HttpMeta: { Response: response, Request: request$ },
+        };
+
+        const [result$] = await this.matcher<operations.GetIngredientResponse>()
+            .json(200, operations.GetIngredientResponse$, { key: "Ingredient" })
+            .fail("4XX")
+            .json("5XX", errors.APIError$, { err: true })
+            .json("default", operations.GetIngredientResponse$, { key: "Error" })
+            .match(response, request$, { extraFields: responseFields$ });
+
+        return result$;
+    }
 }

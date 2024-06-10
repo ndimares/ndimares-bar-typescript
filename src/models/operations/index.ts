@@ -4,6 +4,7 @@
 
 export * from "./createorder";
 export * from "./getdrink";
+export * from "./getingredient";
 export * from "./listdrinks";
 export * from "./listingredients";
 export * from "./login";

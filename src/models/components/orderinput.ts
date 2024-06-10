@@ -25,19 +25,11 @@ export type OrderInput = {
 
 /** @internal */
 export namespace OrderInput$ {
-    export const inboundSchema: z.ZodType<OrderInput, z.ZodTypeDef, unknown> = z
-        .object({
-            type: OrderType$.inboundSchema,
-            productCode: z.string(),
-            quantity: z.number().int(),
-        })
-        .transform((v) => {
-            return {
-                type: v.type,
-                productCode: v.productCode,
-                quantity: v.quantity,
-            };
-        });
+    export const inboundSchema: z.ZodType<OrderInput, z.ZodTypeDef, unknown> = z.object({
+        type: OrderType$.inboundSchema,
+        productCode: z.string(),
+        quantity: z.number().int(),
+    });
 
     export type Outbound = {
         type: string;
@@ -45,17 +37,9 @@ export namespace OrderInput$ {
         quantity: number;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, OrderInput> = z
-        .object({
-            type: OrderType$.outboundSchema,
-            productCode: z.string(),
-            quantity: z.number().int(),
-        })
-        .transform((v) => {
-            return {
-                type: v.type,
-                productCode: v.productCode,
-                quantity: v.quantity,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, OrderInput> = z.object({
+        type: OrderType$.outboundSchema,
+        productCode: z.string(),
+        quantity: z.number().int(),
+    });
 }

@@ -111,13 +111,11 @@ const ndimaresBar = new NdimaresBar({
 
 async function run() {
     const result = await ndimaresBar.orders.createOrder(
-        [
-            {
-                type: OrderType.Ingredient,
-                productCode: "AC-A2DF3",
-                quantity: 138554,
-            },
-        ],
+        {
+            type: OrderType.Ingredient,
+            productCode: "AC-A2DF3",
+            quantity: 138554,
+        },
         "<value>"
     );
 
@@ -167,6 +165,7 @@ run();
 ### [ingredients](docs/sdks/ingredients/README.md)
 
 * [listIngredients](docs/sdks/ingredients/README.md#listingredients) - Get a list of ingredients.
+* [getIngredient](docs/sdks/ingredients/README.md#getingredient) - Get an ingredient.
 
 ### [orders](docs/sdks/orders/README.md)
 
