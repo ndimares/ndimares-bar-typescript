@@ -49,11 +49,7 @@ export namespace APIError$ {
             details: z.record(z.any()).optional(),
         })
         .transform((v) => {
-            return new APIError({
-                ...(v.code === undefined ? null : { code: v.code }),
-                ...(v.message === undefined ? null : { message: v.message }),
-                ...(v.details === undefined ? null : { details: v.details }),
-            });
+            return new APIError(v);
         });
 
     export type Outbound = {
@@ -66,18 +62,10 @@ export namespace APIError$ {
         .instanceof(APIError)
         .transform((v) => v.data$)
         .pipe(
-            z
-                .object({
-                    code: z.string().optional(),
-                    message: z.string().optional(),
-                    details: z.record(z.any()).optional(),
-                })
-                .transform((v) => {
-                    return {
-                        ...(v.code === undefined ? null : { code: v.code }),
-                        ...(v.message === undefined ? null : { message: v.message }),
-                        ...(v.details === undefined ? null : { details: v.details }),
-                    };
-                })
+            z.object({
+                code: z.string().optional(),
+                message: z.string().optional(),
+                details: z.record(z.any()).optional(),
+            })
         );
 }

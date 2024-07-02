@@ -25,10 +25,25 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 npm add https://github.com/ndimares/ndimares-bar-typescript
 ```
 
+### PNPM
+
+```bash
+pnpm add https://github.com/ndimares/ndimares-bar-typescript
+```
+
+### Bun
+
+```bash
+bun add https://github.com/ndimares/ndimares-bar-typescript
+```
+
 ### Yarn
 
 ```bash
-yarn add https://github.com/ndimares/ndimares-bar-typescript
+yarn add https://github.com/ndimares/ndimares-bar-typescript zod
+
+# Note that Yarn does not install peer dependencies automatically. You will need
+# to install zod as shown above.
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -111,13 +126,11 @@ const ndimaresBar = new NdimaresBar({
 
 async function run() {
     const result = await ndimaresBar.orders.createOrder(
-        [
-            {
-                type: OrderType.Ingredient,
-                productCode: "AC-A2DF3",
-                quantity: 138554,
-            },
-        ],
+        {
+            type: OrderType.Ingredient,
+            productCode: "AC-A2DF3",
+            quantity: 138554,
+        },
         "<value>"
     );
 
@@ -167,6 +180,7 @@ run();
 ### [ingredients](docs/sdks/ingredients/README.md)
 
 * [listIngredients](docs/sdks/ingredients/README.md#listingredients) - Get a list of ingredients.
+* [getIngredient](docs/sdks/ingredients/README.md#getingredient) - Get an ingredient.
 
 ### [orders](docs/sdks/orders/README.md)
 
@@ -262,7 +276,7 @@ Validation errors can also occur when either method arguments or data returned f
 
 ```typescript
 import { NdimaresBar } from "ndimares-bar";
-import * as errors from "ndimares-bar/models/errors";
+import { SDKValidationError } from "ndimares-bar/models/errors";
 
 const ndimaresBar = new NdimaresBar({
     security: {
@@ -276,7 +290,7 @@ async function run() {
         result = await ndimaresBar.config.subscribeToWebhooks([{}]);
     } catch (err) {
         switch (true) {
-            case err instanceof errors.SDKValidationError: {
+            case err instanceof SDKValidationError: {
                 // Validation errors can be pretty-printed
                 console.error(err.pretty());
                 // Raw value may also be inspected

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 0c60bc8f-bcb8-4cfe-b394-1d2b82cccbd7
 management:
-  docChecksum: fccfbcdba7e8ff6d0d82dfc68d248ddc
+  docChecksum: 1ee25003118a89e454f453daf2246bd0
   docVersion: 1.0.0
-  speakeasyVersion: 1.297.0
-  generationVersion: 2.338.1
-  releaseVersion: 0.0.2
-  configChecksum: bd96545006366a31641d8c525c2dd7da
+  speakeasyVersion: 1.325.0
+  generationVersion: 2.356.0
+  releaseVersion: 0.1.0
+  configChecksum: d899c23e38eb38d1bc8fdb065db4ef61
   repoURL: https://github.com/ndimares/ndimares-bar-typescript.git
   installationURL: https://github.com/ndimares/ndimares-bar-typescript
 features:
   typescript:
     additionalDependencies: 0.1.0
     callbacks: 1.0.0
-    core: 3.9.9
+    core: 3.10.2
     errors: 2.81.10
     examples: 2.81.4
     flattening: 2.81.1
@@ -35,7 +35,7 @@ generatedFiles:
   - src/sdk/orders.ts
   - src/sdk/config.ts
   - src/sdk/sdk.ts
-  - .eslintrc.js
+  - .eslintrc.cjs
   - .npmignore
   - RUNTIMES.md
   - jsr.json
@@ -46,6 +46,7 @@ generatedFiles:
   - src/lib/encodings.ts
   - src/lib/http.ts
   - src/lib/is-plain-object.ts
+  - src/lib/primitives.ts
   - src/lib/retries.ts
   - src/lib/schemas.ts
   - src/lib/sdks.ts
@@ -64,6 +65,7 @@ generatedFiles:
   - src/models/operations/listdrinks.ts
   - src/models/operations/getdrink.ts
   - src/models/operations/listingredients.ts
+  - src/models/operations/getingredient.ts
   - src/models/operations/createorder.ts
   - src/models/operations/subscribetowebhooks.ts
   - src/models/components/error.ts
@@ -99,6 +101,8 @@ generatedFiles:
   - docs/models/operations/getdrinkresponse.md
   - docs/models/operations/listingredientsrequest.md
   - docs/models/operations/listingredientsresponse.md
+  - docs/models/operations/getingredientrequest.md
+  - docs/models/operations/getingredientresponse.md
   - docs/models/operations/createorderrequest.md
   - docs/models/operations/createorderresponse.md
   - docs/models/operations/webhook.md
@@ -120,7 +124,6 @@ generatedFiles:
   - docs/models/errors/apierror.md
   - docs/models/errors/badrequest.md
   - docs/models/callbacks/createorderorderupdateresponse.md
-  - docs/models/callbacks/createorderorderupdaterequestbody.md
   - docs/models/webhooks/stockupdateresponse.md
   - docs/models/webhooks/stockupdaterequestbody.md
   - docs/sdks/ndimaresbar/README.md
