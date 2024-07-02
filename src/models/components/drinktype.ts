@@ -18,6 +18,6 @@ export enum DrinkType {
 
 /** @internal */
 export namespace DrinkType$ {
-    export const inboundSchema = z.nativeEnum(DrinkType);
-    export const outboundSchema = inboundSchema;
+    export const inboundSchema: z.ZodNativeEnum<typeof DrinkType> = z.nativeEnum(DrinkType);
+    export const outboundSchema: z.ZodNativeEnum<typeof DrinkType> = inboundSchema;
 }

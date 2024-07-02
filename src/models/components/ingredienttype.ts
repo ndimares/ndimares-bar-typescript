@@ -15,6 +15,7 @@ export enum IngredientType {
 
 /** @internal */
 export namespace IngredientType$ {
-    export const inboundSchema = z.nativeEnum(IngredientType);
-    export const outboundSchema = inboundSchema;
+    export const inboundSchema: z.ZodNativeEnum<typeof IngredientType> =
+        z.nativeEnum(IngredientType);
+    export const outboundSchema: z.ZodNativeEnum<typeof IngredientType> = inboundSchema;
 }

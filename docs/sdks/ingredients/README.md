@@ -8,6 +8,7 @@ The ingredients endpoints.
 ### Available Operations
 
 * [listIngredients](#listingredients) - Get a list of ingredients.
+* [getIngredient](#getingredient) - Get an ingredient.
 
 ## listIngredients
 
@@ -48,6 +49,50 @@ run();
 ### Response
 
 **Promise\<[operations.ListIngredientsResponse](../../models/operations/listingredientsresponse.md)\>**
+### Errors
+
+| Error Object     | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.APIError  | 5XX              | application/json |
+| errors.SDKError  | 4xx-5xx          | */*              |
+
+## getIngredient
+
+Get an ingredient by name, if authenticated this will include stock levels and product codes otherwise it will only include public information.
+
+### Example Usage
+
+```typescript
+import { NdimaresBar } from "ndimares-bar";
+
+const ndimaresBar = new NdimaresBar({
+  security: {
+    apiKey: "<YOUR_API_KEY>",
+  },
+});
+
+async function run() {
+  const result = await ndimaresBar.ingredients.getIngredient("<value>");
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `name`                                                                                                                                                                         | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+
+
+### Response
+
+**Promise\<[operations.GetIngredientResponse](../../models/operations/getingredientresponse.md)\>**
 ### Errors
 
 | Error Object     | Status Code      | Content Type     |

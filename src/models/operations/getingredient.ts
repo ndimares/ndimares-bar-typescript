@@ -6,16 +6,16 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import * as components from "../components/index.js";
 import * as z from "zod";
 
-export type GetDrinkRequest = {
+export type GetIngredientRequest = {
     name: string;
 };
 
-export type GetDrinkResponse = {
+export type GetIngredientResponse = {
     httpMeta: components.HTTPMetadata;
     /**
-     * A drink.
+     * An ingredient.
      */
-    drink?: components.Drink | undefined;
+    ingredient?: components.Ingredient | undefined;
     /**
      * An unknown error occurred interacting with the API.
      */
@@ -23,8 +23,8 @@ export type GetDrinkResponse = {
 };
 
 /** @internal */
-export namespace GetDrinkRequest$ {
-    export const inboundSchema: z.ZodType<GetDrinkRequest, z.ZodTypeDef, unknown> = z.object({
+export namespace GetIngredientRequest$ {
+    export const inboundSchema: z.ZodType<GetIngredientRequest, z.ZodTypeDef, unknown> = z.object({
         name: z.string(),
     });
 
@@ -32,43 +32,45 @@ export namespace GetDrinkRequest$ {
         name: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, GetDrinkRequest> = z.object({
-        name: z.string(),
-    });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, GetIngredientRequest> = z.object(
+        {
+            name: z.string(),
+        }
+    );
 }
 
 /** @internal */
-export namespace GetDrinkResponse$ {
-    export const inboundSchema: z.ZodType<GetDrinkResponse, z.ZodTypeDef, unknown> = z
+export namespace GetIngredientResponse$ {
+    export const inboundSchema: z.ZodType<GetIngredientResponse, z.ZodTypeDef, unknown> = z
         .object({
             HttpMeta: components.HTTPMetadata$.inboundSchema,
-            Drink: components.Drink$.inboundSchema.optional(),
+            Ingredient: components.Ingredient$.inboundSchema.optional(),
             Error: components.ErrorT$.inboundSchema.optional(),
         })
         .transform((v) => {
             return remap$(v, {
                 HttpMeta: "httpMeta",
-                Drink: "drink",
+                Ingredient: "ingredient",
                 Error: "error",
             });
         });
 
     export type Outbound = {
         HttpMeta: components.HTTPMetadata$.Outbound;
-        Drink?: components.Drink$.Outbound | undefined;
+        Ingredient?: components.Ingredient$.Outbound | undefined;
         Error?: components.ErrorT$.Outbound | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, GetDrinkResponse> = z
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, GetIngredientResponse> = z
         .object({
             httpMeta: components.HTTPMetadata$.outboundSchema,
-            drink: components.Drink$.outboundSchema.optional(),
+            ingredient: components.Ingredient$.outboundSchema.optional(),
             error: components.ErrorT$.outboundSchema.optional(),
         })
         .transform((v) => {
             return remap$(v, {
                 httpMeta: "HttpMeta",
-                drink: "Drink",
+                ingredient: "Ingredient",
                 error: "Error",
             });
         });

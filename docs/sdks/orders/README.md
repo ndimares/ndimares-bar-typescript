@@ -26,13 +26,11 @@ const ndimaresBar = new NdimaresBar({
 });
 
 async function run() {
-  const result = await ndimaresBar.orders.createOrder([
-    {
-      type: OrderType.Ingredient,
-      productCode: "AC-A2DF3",
-      quantity: 138554,
-    },
-  ], "<value>");
+  const result = await ndimaresBar.orders.createOrder({
+    type: OrderType.Ingredient,
+    productCode: "AC-A2DF3",
+    quantity: 138554,
+  }, "<value>");
 
   // Handle the result
   console.log(result)
@@ -45,7 +43,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `requestBody`                                                                                                                                                                  | [components.OrderInput](../../models/components/orderinput.md)[]                                                                                                               | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `order`                                                                                                                                                                        | [components.OrderInput](../../models/components/orderinput.md)                                                                                                                 | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
 | `callbackUrl`                                                                                                                                                                  | *string*                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | The url to call when the order is updated.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |

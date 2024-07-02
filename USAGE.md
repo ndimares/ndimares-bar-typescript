@@ -69,13 +69,11 @@ const ndimaresBar = new NdimaresBar({
 
 async function run() {
     const result = await ndimaresBar.orders.createOrder(
-        [
-            {
-                type: OrderType.Ingredient,
-                productCode: "AC-A2DF3",
-                quantity: 138554,
-            },
-        ],
+        {
+            type: OrderType.Ingredient,
+            productCode: "AC-A2DF3",
+            quantity: 138554,
+        },
         "<value>"
     );
 
