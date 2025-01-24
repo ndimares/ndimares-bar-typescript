@@ -1,5 +1,16 @@
 # Drink
 
+## Example Usage
+
+```typescript
+import { Drink } from "ndimares-bar/models/components";
+
+let value: Drink = {
+  name: "Negroni",
+  price: 1000,
+  productCode: "NAC-3F2D1",
+};
+```
 
 ## Fields
 

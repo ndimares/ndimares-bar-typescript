@@ -2,6 +2,13 @@
 
 The type of drink.
 
+## Example Usage
+
+```typescript
+import { DrinkType } from "ndimares-bar/models/components";
+
+let value: DrinkType = DrinkType.Cocktail;
+```
 
 ## Values
 

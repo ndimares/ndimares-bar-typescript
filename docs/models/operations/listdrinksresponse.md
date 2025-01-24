@@ -1,5 +1,26 @@
 # ListDrinksResponse
 
+## Example Usage
+
+```typescript
+import { ListDrinksResponse } from "ndimares-bar/models/operations";
+
+let value: ListDrinksResponse = {
+  httpMeta: {
+    response: new Response("{\"message\": \"hello world\"}", {
+      headers: { "Content-Type": "application/json" },
+    }),
+    request: new Request("https://example.com"),
+  },
+  drinks: [
+    {
+      name: "Manhattan",
+      price: 1200,
+      productCode: "NAC-3F2D1",
+    },
+  ],
+};
+```
 
 ## Fields
 

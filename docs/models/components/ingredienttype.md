@@ -2,6 +2,13 @@
 
 The type of ingredient.
 
+## Example Usage
+
+```typescript
+import { IngredientType } from "ndimares-bar/models/components";
+
+let value: IngredientType = IngredientType.Fresh;
+```
 
 ## Values
 

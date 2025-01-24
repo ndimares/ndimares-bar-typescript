@@ -1,5 +1,14 @@
 # ErrorT
 
+An unknown error occurred interacting with the API.
+
+## Example Usage
+
+```typescript
+import { ErrorT } from "ndimares-bar/models/components";
+
+let value: ErrorT = {};
+```
 
 ## Fields
 

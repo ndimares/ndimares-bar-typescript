@@ -1,19 +1,21 @@
-speakeasyVersion: 1.297.0
+speakeasyVersion: 1.474.0
 sources:
     openapi:
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:9f47fdf9af0fcef858dd78e550f37e2e41895f595113d75fc4dc3e012ad2c799
-        sourceBlobDigest: sha256:8a8a26ee0d2057a10f325af3fbbd9f863d6b2c24f7bcd2baf8771ab478ebe7c5
+        sourceRevisionDigest: sha256:01f89e1a71ad1e40851b2723d1cc7c5e39aa6536f749de6b8d184d959f14f74f
+        sourceBlobDigest: sha256:451a5a0c07ee22392d010a2f8886b2add16606e6523ed2cd0c16b745d0ee484d
         tags:
             - latest
-            - main
+            - speakeasy-sdk-regen-1718151673
+            - 1.0.0
 targets:
     my-first-target:
         source: openapi
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:9f47fdf9af0fcef858dd78e550f37e2e41895f595113d75fc4dc3e012ad2c799
-        sourceBlobDigest: sha256:8a8a26ee0d2057a10f325af3fbbd9f863d6b2c24f7bcd2baf8771ab478ebe7c5
-        outLocation: /github/workspace/repo
+        sourceRevisionDigest: sha256:01f89e1a71ad1e40851b2723d1cc7c5e39aa6536f749de6b8d184d959f14f74f
+        sourceBlobDigest: sha256:451a5a0c07ee22392d010a2f8886b2add16606e6523ed2cd0c16b745d0ee484d
+        codeSamplesNamespace: openapi-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:f8fb08cc65486b7aecb78e539f42f753e1982411a1501b3ca07ff5879aca5625
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -27,3 +29,9 @@ workflow:
         my-first-target:
             target: typescript
             source: openapi
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/nolan-sdks/nolan-sdks/openapi-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (SDK)
+                blocking: false

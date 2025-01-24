@@ -1,5 +1,19 @@
 # SubscribeToWebhooksResponse
 
+## Example Usage
+
+```typescript
+import { SubscribeToWebhooksResponse } from "ndimares-bar/models/operations";
+
+let value: SubscribeToWebhooksResponse = {
+  httpMeta: {
+    response: new Response("{\"message\": \"hello world\"}", {
+      headers: { "Content-Type": "application/json" },
+    }),
+    request: new Request("https://example.com"),
+  },
+};
+```
 
 ## Fields
 

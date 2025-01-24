@@ -2,6 +2,13 @@
 
 The api key to use for authenticated endpoints.
 
+## Example Usage
+
+```typescript
+import { LoginResponseBody } from "ndimares-bar/models/operations";
+
+let value: LoginResponseBody = {};
+```
 
 ## Fields
 

@@ -1,5 +1,15 @@
 # Security
 
+## Example Usage
+
+```typescript
+import { Security } from "ndimares-bar/models/components";
+
+let value: Security = {
+  apiKey: "<YOUR_API_KEY>",
+  bearerAuth: "<YOUR_JWT>",
+};
+```
 
 ## Fields
 

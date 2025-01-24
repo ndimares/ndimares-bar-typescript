@@ -1,5 +1,16 @@
 # IngredientInput
 
+## Example Usage
+
+```typescript
+import { IngredientInput, IngredientType } from "ndimares-bar/models/components";
+
+let value: IngredientInput = {
+  name: "Orange Peel",
+  type: IngredientType.LongLife,
+  productCode: "NAC-3F2D1",
+};
+```
 
 ## Fields
 

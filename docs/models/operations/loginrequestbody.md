@@ -1,5 +1,14 @@
 # LoginRequestBody
 
+## Example Usage
+
+```typescript
+import { LoginRequestBody, Type } from "ndimares-bar/models/operations";
+
+let value: LoginRequestBody = {
+  type: Type.Jwt,
+};
+```
 
 ## Fields
 

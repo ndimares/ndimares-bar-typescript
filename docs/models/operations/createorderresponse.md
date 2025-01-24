@@ -1,5 +1,26 @@
 # CreateOrderResponse
 
+## Example Usage
+
+```typescript
+import { OrderType, Status } from "ndimares-bar/models/components";
+import { CreateOrderResponse } from "ndimares-bar/models/operations";
+
+let value: CreateOrderResponse = {
+  httpMeta: {
+    response: new Response("{\"message\": \"hello world\"}", {
+      headers: { "Content-Type": "application/json" },
+    }),
+    request: new Request("https://example.com"),
+  },
+  order: {
+    type: OrderType.Ingredient,
+    productCode: "APM-1F2D3",
+    quantity: 799159,
+    status: Status.Processing,
+  },
+};
+```
 
 ## Fields
 

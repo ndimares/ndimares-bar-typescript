@@ -1,5 +1,12 @@
 # ListDrinksRequest
 
+## Example Usage
+
+```typescript
+import { ListDrinksRequest } from "ndimares-bar/models/operations";
+
+let value: ListDrinksRequest = {};
+```
 
 ## Fields
 
