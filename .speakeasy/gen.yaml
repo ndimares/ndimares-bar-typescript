@@ -11,8 +11,9 @@ generation:
     requestResponseComponentNamesFeb2024: true
   auth:
     oAuth2ClientCredentialsEnabled: true
+    oAuth2PasswordEnabled: false
 typescript:
-  version: 0.0.2
+  version: 0.1.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -20,8 +21,12 @@ typescript:
   additionalPackageJSON: {}
   author: Speakeasy
   clientServerStatusCodesAsErrors: true
+  defaultErrorName: SDKError
+  enableCustomCodeRegions: false
+  enableReactQuery: false
   enumFormat: enum
   flattenGlobalSecurity: true
+  flatteningOrder: parameters-first
   imports:
     option: openapi
     paths:
@@ -33,7 +38,9 @@ typescript:
   inputModelSuffix: input
   maxMethodParams: 4
   methodArguments: require-security-and-request
+  moduleFormat: commonjs
   outputModelSuffix: output
   packageName: ndimares-bar
   responseFormat: envelope-http
   templateVersion: v2
+  useIndexModules: true

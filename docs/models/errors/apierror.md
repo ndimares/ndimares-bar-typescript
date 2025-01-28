@@ -2,6 +2,13 @@
 
 An error occurred interacting with the API.
 
+## Example Usage
+
+```typescript
+import { APIError } from "ndimares-bar/models/errors";
+
+// No examples available for this model
+```
 
 ## Fields
 

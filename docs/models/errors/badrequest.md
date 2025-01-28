@@ -1,5 +1,14 @@
 # BadRequest
 
+Bad Request
+
+## Example Usage
+
+```typescript
+import { BadRequest } from "ndimares-bar/models/errors";
+
+// No examples available for this model
+```
 
 ## Fields
 

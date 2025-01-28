@@ -2,6 +2,18 @@
 
 An order for a drink or ingredient.
 
+## Example Usage
+
+```typescript
+import { Order, OrderType, Status } from "ndimares-bar/models/components";
+
+let value: Order = {
+  type: OrderType.Ingredient,
+  productCode: "NAC-3F2D1",
+  quantity: 437032,
+  status: Status.Complete,
+};
+```
 
 ## Fields
 

@@ -1,5 +1,24 @@
 # GetDrinkResponse
 
+## Example Usage
+
+```typescript
+import { GetDrinkResponse } from "ndimares-bar/models/operations";
+
+let value: GetDrinkResponse = {
+  httpMeta: {
+    response: new Response("{\"message\": \"hello world\"}", {
+      headers: { "Content-Type": "application/json" },
+    }),
+    request: new Request("https://example.com"),
+  },
+  drink: {
+    name: "Manhattan",
+    price: 1200,
+    productCode: "APM-1F2D3",
+  },
+};
+```
 
 ## Fields
 

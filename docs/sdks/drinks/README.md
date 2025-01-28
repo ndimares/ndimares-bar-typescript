@@ -18,15 +18,42 @@ Get a list of drinks, if authenticated this will include stock levels and produc
 
 ```typescript
 import { NdimaresBar } from "ndimares-bar";
-import { DrinkType } from "ndimares-bar/models/components";
 
 const ndimaresBar = new NdimaresBar();
 
 async function run() {
-  const result = await ndimaresBar.drinks.listDrinks("<YOUR_JWT>", DrinkType.Spirit);
+  const result = await ndimaresBar.drinks.listDrinks();
 
   // Handle the result
-  console.log(result)
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { NdimaresBarCore } from "ndimares-bar/core.js";
+import { drinksListDrinks } from "ndimares-bar/funcs/drinksListDrinks.js";
+
+// Use `NdimaresBarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ndimaresBar = new NdimaresBarCore();
+
+async function run() {
+  const res = await drinksListDrinks(ndimaresBar);
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -40,18 +67,19 @@ run();
 | `drinkType`                                                                                                                                                                    | [components.DrinkType](../../models/components/drinktype.md)                                                                                                                   | :heavy_minus_sign:                                                                                                                                                             | The type of drink to filter by. If not provided all drinks will be returned.                                                                                                   |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 | `options.serverURL`                                                                                                                                                            | *string*                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | An optional server URL to use.                                                                                                                                                 |
-
 
 ### Response
 
 **Promise\<[operations.ListDrinksResponse](../../models/operations/listdrinksresponse.md)\>**
+
 ### Errors
 
-| Error Object     | Status Code      | Content Type     |
+| Error Type       | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
 | errors.APIError  | 5XX              | application/json |
-| errors.SDKError  | 4xx-5xx          | */*              |
+| errors.SDKError  | 4XX              | \*/\*            |
 
 ## getDrink
 
@@ -72,7 +100,39 @@ async function run() {
   const result = await ndimaresBar.drinks.getDrink("<value>");
 
   // Handle the result
-  console.log(result)
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { NdimaresBarCore } from "ndimares-bar/core.js";
+import { drinksGetDrink } from "ndimares-bar/funcs/drinksGetDrink.js";
+
+// Use `NdimaresBarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const ndimaresBar = new NdimaresBarCore({
+  security: {
+    apiKey: "<YOUR_API_KEY>",
+  },
+});
+
+async function run() {
+  const res = await drinksGetDrink(ndimaresBar, "<value>");
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -85,14 +145,15 @@ run();
 | `name`                                                                                                                                                                         | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
 **Promise\<[operations.GetDrinkResponse](../../models/operations/getdrinkresponse.md)\>**
+
 ### Errors
 
-| Error Object     | Status Code      | Content Type     |
+| Error Type       | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
 | errors.APIError  | 5XX              | application/json |
-| errors.SDKError  | 4xx-5xx          | */*              |
+| errors.SDKError  | 4XX              | \*/\*            |

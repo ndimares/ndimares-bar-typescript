@@ -1,5 +1,16 @@
 # DrinkInput
 
+## Example Usage
+
+```typescript
+import { DrinkInput } from "ndimares-bar/models/components";
+
+let value: DrinkInput = {
+  name: "Negroni",
+  price: 1200,
+  productCode: "NAC-3F2D1",
+};
+```
 
 ## Fields
 

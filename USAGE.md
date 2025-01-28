@@ -12,18 +12,15 @@ import { Type } from "ndimares-bar/models/operations";
 const ndimaresBar = new NdimaresBar();
 
 async function run() {
-    const result = await ndimaresBar.authentication.login(
-        {
-            type: Type.ApiKey,
-        },
-        {
-            username: "<USERNAME>",
-            password: "<PASSWORD>",
-        }
-    );
+  const result = await ndimaresBar.authentication.login({
+    username: "<USERNAME>",
+    password: "<PASSWORD>",
+  }, {
+    type: Type.ApiKey,
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -37,15 +34,14 @@ For example, you can filter the list of available drinks by type.
 
 ```typescript
 import { NdimaresBar } from "ndimares-bar";
-import { DrinkType } from "ndimares-bar/models/components";
 
 const ndimaresBar = new NdimaresBar();
 
 async function run() {
-    const result = await ndimaresBar.drinks.listDrinks("<YOUR_JWT>", DrinkType.Spirit);
+  const result = await ndimaresBar.drinks.listDrinks();
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -62,25 +58,20 @@ import { NdimaresBar } from "ndimares-bar";
 import { OrderType } from "ndimares-bar/models/components";
 
 const ndimaresBar = new NdimaresBar({
-    security: {
-        apiKey: "<YOUR_API_KEY>",
-    },
+  security: {
+    apiKey: "<YOUR_API_KEY>",
+  },
 });
 
 async function run() {
-    const result = await ndimaresBar.orders.createOrder(
-        [
-            {
-                type: OrderType.Ingredient,
-                productCode: "AC-A2DF3",
-                quantity: 138554,
-            },
-        ],
-        "<value>"
-    );
+  const result = await ndimaresBar.orders.createOrder({
+    type: OrderType.Ingredient,
+    productCode: "AC-A2DF3",
+    quantity: 567805,
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -93,16 +84,20 @@ run();
 import { NdimaresBar } from "ndimares-bar";
 
 const ndimaresBar = new NdimaresBar({
-    security: {
-        apiKey: "<YOUR_API_KEY>",
-    },
+  security: {
+    apiKey: "<YOUR_API_KEY>",
+  },
 });
 
 async function run() {
-    const result = await ndimaresBar.config.subscribeToWebhooks([{}]);
+  const result = await ndimaresBar.config.subscribeToWebhooks([
+    {},
+    {},
+    {},
+  ]);
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();

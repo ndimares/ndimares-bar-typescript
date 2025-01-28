@@ -1,5 +1,12 @@
 # ListIngredientsRequest
 
+## Example Usage
+
+```typescript
+import { ListIngredientsRequest } from "ndimares-bar/models/operations";
+
+let value: ListIngredientsRequest = {};
+```
 
 ## Fields
 

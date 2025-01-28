@@ -1,5 +1,14 @@
 # ListDrinksSecurity
 
+## Example Usage
+
+```typescript
+import { ListDrinksSecurity } from "ndimares-bar/models/operations";
+
+let value: ListDrinksSecurity = {
+  bearerAuth: "<YOUR_JWT>",
+};
+```
 
 ## Fields
 

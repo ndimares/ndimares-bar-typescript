@@ -1,5 +1,17 @@
 # Ingredient
 
+## Example Usage
+
+```typescript
+import { Ingredient, IngredientType } from "ndimares-bar/models/components";
+
+let value: Ingredient = {
+  name: "Sugar Syrup",
+  type: IngredientType.LongLife,
+  stock: 5,
+  productCode: "NAC-3F2D1",
+};
+```
 
 ## Fields
 

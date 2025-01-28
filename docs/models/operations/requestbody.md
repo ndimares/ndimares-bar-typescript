@@ -1,5 +1,12 @@
 # RequestBody
 
+## Example Usage
+
+```typescript
+import { RequestBody } from "ndimares-bar/models/operations";
+
+let value: RequestBody = {};
+```
 
 ## Fields
 

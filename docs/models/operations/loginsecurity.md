@@ -1,5 +1,15 @@
 # LoginSecurity
 
+## Example Usage
+
+```typescript
+import { LoginSecurity } from "ndimares-bar/models/operations";
+
+let value: LoginSecurity = {
+  username: "<USERNAME>",
+  password: "<PASSWORD>",
+};
+```
 
 ## Fields
 

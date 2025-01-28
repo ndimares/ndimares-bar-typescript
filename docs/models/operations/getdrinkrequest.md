@@ -1,5 +1,14 @@
 # GetDrinkRequest
 
+## Example Usage
+
+```typescript
+import { GetDrinkRequest } from "ndimares-bar/models/operations";
+
+let value: GetDrinkRequest = {
+  name: "<value>",
+};
+```
 
 ## Fields
 

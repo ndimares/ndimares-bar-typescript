@@ -1,5 +1,19 @@
 # LoginResponse
 
+## Example Usage
+
+```typescript
+import { LoginResponse } from "ndimares-bar/models/operations";
+
+let value: LoginResponse = {
+  httpMeta: {
+    response: new Response("{\"message\": \"hello world\"}", {
+      headers: { "Content-Type": "application/json" },
+    }),
+    request: new Request("https://example.com"),
+  },
+};
+```
 
 ## Fields
 
